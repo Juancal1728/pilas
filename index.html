@@ -3,18 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pilas</title>
+<title>Ubi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Pilas: el rastreador Bluetooth para estudiantes de Cali. Funciona con iPhone y Android. $39.900.">
+<meta name="description" content="Ubi: el rastreador Bluetooth para estudiantes de Cali. Funciona con iPhone y Android. $39.900.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --dark:#17191F; --dark2:#24272F; --dark3:#3A3E49;
-  --cream:#F6F4EE; --card:#FFFDF8; --yellow:#F5C518; --yellow2:#E0B000; --gold:#8A6A00; --pale:#FBEAB0;
+  --cream:#F6F4EE; --card:#FFFDF8; --yellow:#C9A54A; --yellow2:#A88A35; --gold:#7A6324; --pale:#EFE5C8;
   --t1:#17191F; --t2:#4A4E57; --t3:#6B6F78; --t4:#A9ADB8; --t5:#D9DBE0;
-  --shadow:0 20px 40px rgba(23,25,31,.08); --r:28px;
+  --shadow:0 20px 40px rgba(23,25,31,.07); --line:#E9E5DC; --warn:#B4534A;
+  --c0:#C9A54A; --c1:#8C939E; --c2:#5E6570; --c3:#7A6324; --c4:#C4C8CE; --c5:#2B2E35; --r:28px;
   --gut:max(16px, env(safe-area-inset-left));
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -36,7 +37,7 @@ section{padding:112px 0}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,background .2s}
 .btn:active{transform:scale(.97)}
 .btn-y{background:var(--yellow);color:var(--dark)}
-.btn-y:hover{box-shadow:0 10px 30px rgba(245,197,24,.45);transform:translateY(-2px)}
+.btn-y:hover{box-shadow:0 10px 30px rgba(201,165,74,.45);transform:translateY(-2px)}
 .btn-o{border:2px solid var(--dark3);color:var(--t5)}
 .btn-o:hover{border-color:var(--yellow);color:var(--yellow)}
 .btn-d{background:var(--dark);color:var(--cream)}
@@ -76,7 +77,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .chip-save{background:var(--yellow);color:var(--dark);font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
 .stage{position:relative;aspect-ratio:1;display:grid;place-items:center;perspective:900px}
-.ring{position:absolute;border-radius:50%;border:2px solid rgba(245,197,24,.18);inset:var(--i)}
+.ring{position:absolute;border-radius:50%;border:2px solid rgba(201,165,74,.18);inset:var(--i)}
 .ping{position:absolute;inset:22%;border-radius:50%;border:3px solid var(--yellow);opacity:0;pointer-events:none}
 .stage.ringing .ping{animation:ping 1.2s cubic-bezier(.2,.8,.2,1) infinite}
 .stage.ringing .ping:nth-child(5){animation-delay:.4s}
@@ -96,7 +97,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.stage{max-width:420px;margin:0 auto;width:100%}.scroll-hint{display:none}}
 
 /* MARQUEE */
-.marquee{background:var(--yellow);color:var(--dark);overflow:hidden;padding:18px 0;font-family:'Oswald';font-size:24px;font-weight:600;white-space:nowrap}
+.marquee{background:var(--pale);color:var(--dark);overflow:hidden;padding:18px 0;font-family:'Oswald';font-size:24px;font-weight:600;white-space:nowrap}
 .marquee div{display:inline-flex;gap:40px;animation:mq 28s linear infinite;padding-right:40px}
 .marquee b{font-weight:600;opacity:.45}
 @keyframes mq{to{transform:translateX(-50%)}}
@@ -128,7 +129,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .pin{position:absolute;translate:-50% -100%;transition:left .9s cubic-bezier(.2,.8,.2,1),top .9s cubic-bezier(.2,.8,.2,1)}
 .pin .head{width:48px;height:48px;border-radius:50% 50% 50% 0;rotate:-45deg;background:var(--dark);display:grid;place-items:center;box-shadow:0 8px 18px rgba(0,0,0,.3)}
 .pin .head span{rotate:45deg;font-size:22px}
-.pin .pulse{position:absolute;left:50%;bottom:-6px;width:60px;height:20px;translate:-50% 50%;border-radius:50%;background:rgba(245,197,24,.5);animation:pp 1.6s infinite}
+.pin .pulse{position:absolute;left:50%;bottom:-6px;width:60px;height:20px;translate:-50% 50%;border-radius:50%;background:rgba(201,165,74,.5);animation:pp 1.6s infinite}
 @keyframes pp{0%{transform:scale(.4);opacity:1}100%{transform:scale(1.8);opacity:0}}
 .pin.ringing .head{animation:shake .12s infinite;background:var(--yellow)}
 .route{position:absolute;inset:0;pointer-events:none}
@@ -155,14 +156,14 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .act.p{background:var(--yellow);color:var(--dark)}
 .act.s{background:var(--dark);color:var(--cream)}
 .act:active{transform:scale(.96)}
-.found{position:absolute;inset:0;z-index:7;background:rgba(245,197,24,.96);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .4s}
+.found{position:absolute;inset:0;z-index:7;background:rgba(201,165,74,.96);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .4s}
 .found.on{opacity:1;pointer-events:auto}
 .found .big{font-size:64px}
 .found h4{font-family:'Oswald';font-size:34px}
 .found p{font-size:14px}
 .net{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
 .net span{font-size:13px;padding:8px 14px;border-radius:999px;background:var(--dark2);color:var(--t5);display:flex;gap:8px;align-items:center}
-.net i{width:8px;height:8px;border-radius:50%;background:#3DDC84;box-shadow:0 0 0 4px rgba(61,220,132,.2)}
+.net i{width:8px;height:8px;border-radius:50%;background:#7FB08A;box-shadow:0 0 0 4px rgba(127,176,138,.2)}
 @media (max-width:960px){.app-grid{grid-template-columns:1fr}.phone{max-width:340px}}
 
 /* PRODUCTS */
@@ -186,7 +187,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .ptag{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;letter-spacing:.08em;padding:5px 10px;border-radius:999px;background:var(--dark);color:var(--yellow);text-transform:uppercase}
 .fav{position:absolute;top:10px;right:10px;width:38px;height:38px;border-radius:50%;background:var(--card);display:grid;place-items:center;z-index:3;box-shadow:0 4px 10px rgba(0,0,0,.08);transition:transform .2s}
 .fav svg{width:18px;height:18px;fill:none;stroke:var(--t2);stroke-width:2;transition:fill .2s,stroke .2s}
-.fav.on svg{fill:#E5484D;stroke:#E5484D}
+.fav.on svg{fill:#B4534A;stroke:#B4534A}
 .fav.on{animation:bump .4s}
 .pcard h3{font-family:'Rubik';font-size:20px;font-weight:700;letter-spacing:0}
 .pcard .desc{font-size:14px;color:var(--t2);margin:6px 0 auto}
@@ -195,7 +196,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .pp small{font-size:13px;color:var(--t3)}
 .prow{display:flex;gap:8px}
 .add{flex:1;padding:12px;border-radius:14px;background:var(--yellow);font-weight:700;font-size:14px;transition:background .2s,transform .15s}
-.add:hover{background:#FFD234}
+.add:hover{background:#D6B45E}
 .add.done{background:var(--dark);color:var(--yellow)}
 .flip{width:46px;border-radius:14px;background:var(--cream);display:grid;place-items:center;transition:background .2s}
 .flip:hover{background:var(--pale)}
@@ -232,40 +233,45 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 /* COMPARE TABLE */
 .cmp{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow:hidden}
 .cmp table{width:100%;border-collapse:collapse;font-size:16px}
-.cmp th,.cmp td{padding:18px 24px;text-align:left;border-bottom:1px solid #EEE9DD}
+.cmp th,.cmp td{padding:18px 24px;text-align:left;border-bottom:1px solid #E9E5DC}
 .cmp th{font-family:'Oswald';font-size:22px;font-weight:600}
 .cmp th.us,.cmp td.us{background:var(--pale)}
 .cmp td:first-child{color:var(--t2)}
 .cmp tr:last-child td{border-bottom:0}
-.ok{color:#1B8A4B;font-weight:700}.no{color:#C2412D;font-weight:700}
+.ok{color:#3F7A55;font-weight:700}.no{color:#A04A3A;font-weight:700}
 @media (max-width:560px){.cmp th,.cmp td{padding:14px 12px;font-size:14px}}
 
 
 /* IMPORT COSTS */
-.cost-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:start}
-.ctable{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow-x:auto;min-width:0}
+.cost-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:24px;align-items:stretch}
+.ctable{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow-x:auto;min-width:0;padding-bottom:24px}
 .ctable table{width:100%;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}
-.ctable th,.ctable td{padding:15px 22px;text-align:left;border-bottom:1px solid #EEE9DD}
+.ctable th,.ctable td{padding:15px 22px;text-align:left;border-bottom:1px solid var(--line)}
 .ctable th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);font-weight:700}
 .ctable td.n,.ctable th.n{text-align:right;white-space:nowrap}
 .ctable td small{display:block;color:var(--t3);font-size:13px}
+.ctable tr[data-i]{cursor:default;transition:background .2s}
+.ctable tr[data-i].hl{background:var(--cream)}
 .ctable .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:10px;vertical-align:middle}
 .ctable tr.tot td{background:var(--pale);font-weight:700;border-bottom:0;font-size:18px}
-.ctable td.pct{color:var(--t3);font-size:14px;text-align:right}
-.stackbar{display:flex;height:14px;border-radius:9px;overflow:hidden;margin:20px 22px 6px}
-.stackbar i{display:block;height:100%;transition:flex-grow .5s}
-.pricecard{background:var(--dark);color:var(--cream);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:14px}
-.pricecard .lab{font-size:13px;color:var(--t4);letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-.formula{font-family:'Oswald',Impact,sans-serif;font-size:24px;line-height:1.3;background:var(--dark2);padding:14px 18px;border-radius:16px}
-.pricecard .final{font-family:'Oswald',Impact,sans-serif;font-size:64px;color:var(--yellow);line-height:1;font-weight:700}
-.mrow{display:flex;justify-content:space-between;font-size:15px;color:var(--t5);font-variant-numeric:tabular-nums}
-.mrow b{color:var(--cream)}
-.trm{background:var(--dark2);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
-.trm input[type=range]{width:100%;accent-color:var(--yellow);padding:0;border:0;background:none}
-.trm .mrow span:last-child{font-family:'Oswald',Impact,sans-serif;font-size:20px;color:var(--yellow)}
-.mchip{align-self:flex-start;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;background:var(--yellow);color:var(--dark);transition:background .3s}
-.mchip.warn{background:#E5484D;color:#fff}
-.cnote{font-size:13px;color:var(--t3);margin-top:16px;max-width:760px}
+.stackbar{display:flex;height:12px;border-radius:9px;overflow:hidden;margin:22px 22px 0;gap:2px}
+.stackbar i{display:block;height:100%;transition:flex-grow .5s,opacity .2s}
+.stackbar.focus i{opacity:.25}.stackbar.focus i.hl{opacity:1}
+.sim{background:var(--dark);color:var(--cream);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.ctrl{display:flex;flex-direction:column;gap:10px}
+.crow{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;color:var(--t5)}
+.crow label{font-weight:500;font-size:15px;color:var(--t5);flex-direction:row}
+.crow output{font-family:'Oswald',Impact,sans-serif;font-size:24px;color:var(--yellow);font-variant-numeric:tabular-nums}
+.sim input[type=range]{width:100%;accent-color:var(--yellow);padding:0;border:0;background:none}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi{background:var(--dark2);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:6px}
+.kpi span{font-size:13px;color:var(--t4)}
+.kpi b{font-family:'Oswald',Impact,sans-serif;font-size:28px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.gtrack{position:relative;height:10px;border-radius:9px;background:var(--dark3);margin-top:10px}
+.gtrack i{position:absolute;inset:0 auto 0 0;border-radius:9px;background:var(--yellow);transition:width .4s,background .3s}
+.gtrack i.warn{background:var(--warn)}
+.gtrack em{position:absolute;top:-5px;width:2px;height:20px;background:var(--t5)}
+.gnote{font-size:13px;color:var(--t4);margin-top:8px}
 @media (max-width:900px){.cost-grid{grid-template-columns:1fr}}
 
 /* DISCOUNTS */
@@ -370,7 +376,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
 <!-- reusable tag symbol -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <radialGradient id="gY" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#FFE27A"/><stop offset=".55" stop-color="#F5C518"/><stop offset="1" stop-color="#C99A00"/></radialGradient>
+    <radialGradient id="gY" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#E2C77C"/><stop offset=".55" stop-color="#C9A54A"/><stop offset="1" stop-color="#9C7F30"/></radialGradient>
     <radialGradient id="gC" cx="40%" cy="35%" r="70%"><stop offset="0" stop-color="#3A3E49"/><stop offset="1" stop-color="#121318"/></radialGradient>
   </defs>
   <symbol id="tag" viewBox="0 0 400 440">
@@ -379,21 +385,21 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
     <circle cx="200" cy="240" r="170" fill="none" stroke="rgba(0,0,0,.12)" stroke-width="4"/>
     <circle cx="200" cy="96" r="22" fill="#17191F"/>
     <circle cx="200" cy="240" r="96" fill="url(#gC)"/>
-    <path d="M214 160 L168 244 H200 L186 308 L234 218 H202 Z" fill="#F5C518"/>
+    <path d="M200 172 C170 172 150 194 150 222 C150 258 200 306 200 306 C200 306 250 258 250 222 C250 194 230 172 200 172 Z M200 202 A20 20 0 1 0 200.01 202 Z" fill="#C9A54A" fill-rule="evenodd"/>
     <ellipse cx="140" cy="150" rx="60" ry="26" fill="#fff" opacity=".25" transform="rotate(-30 140 150)"/>
   </symbol>
   <symbol id="patch" viewBox="0 0 400 440">
     <rect x="40" y="70" width="320" height="320" rx="60" fill="url(#gY)"/>
     <rect x="80" y="110" width="240" height="240" rx="40" fill="url(#gC)"/>
-    <path d="M214 140 L168 224 H200 L186 288 L234 198 H202 Z" fill="#F5C518" transform="translate(0,15)"/>
+    <path d="M200 172 C170 172 150 194 150 222 C150 258 200 306 200 306 C200 306 250 258 250 222 C250 194 230 172 200 172 Z M200 202 A20 20 0 1 0 200.01 202 Z" fill="#C9A54A" fill-rule="evenodd" transform="translate(0,-4)"/>
   </symbol>
 </svg>
 
 <nav id="nav">
   <div class="wrap">
-    <a href="#top" class="logo" aria-label="Pilas inicio">
-      <svg viewBox="0 0 40 40"><rect x="4" y="9" width="28" height="22" rx="6" fill="#F5C518"/><rect x="33" y="15" width="4" height="10" rx="2" fill="#F5C518"/><path d="M20 12 L13 21 H18 L16 28 L24 18 H19 Z" fill="#17191F"/></svg>
-      Pilas
+    <a href="#top" class="logo" aria-label="Ubi inicio">
+      <svg viewBox="0 0 40 40"><rect x="2" y="2" width="36" height="36" rx="11" fill="#C9A54A"/><path fill-rule="evenodd" d="M20 8.5c-5 0-8.7 3.7-8.7 8.5 0 6.2 8.7 14.5 8.7 14.5s8.7-8.3 8.7-14.5c0-4.8-3.7-8.5-8.7-8.5Zm0 5.3a3.2 3.2 0 1 0 0 6.4 3.2 3.2 0 0 0 0-6.4Z" fill="#17191F"/></svg>
+      Ubi
     </a>
     <div class="nav-links">
       <a href="#app">La app</a><a href="#productos">Productos</a><a href="#como">Cómo funciona</a><a href="#comparar">Comparar</a><a href="#costos">Costos</a><a href="#preventa">Preventa</a>
@@ -432,14 +438,14 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
       <div class="ring" style="--i:12%"></div>
       <div class="ring" style="--i:24%"></div>
       <div class="ping"></div><div class="ping"></div><div class="ping"></div>
-      <svg class="tag3d" id="tag3d" viewBox="0 0 400 440" style="color:#F5C518" aria-label="Rastreador Pilas"><use href="#tag"/></svg>
+      <svg class="tag3d" id="tag3d" viewBox="0 0 400 440" style="color:#C9A54A" aria-label="Rastreador Ubi"><use href="#tag"/></svg>
       <div class="swatches" role="radiogroup" aria-label="Color del llavero">
         <span>Llavero</span>
-        <button class="sw on" style="background:#F5C518" data-c="#F5C518" aria-label="Amarillo"></button>
-        <button class="sw" style="background:#F6F4EE" data-c="#F6F4EE" aria-label="Blanco"></button>
-        <button class="sw" style="background:#E5484D" data-c="#E5484D" aria-label="Rojo"></button>
-        <button class="sw" style="background:#4F9DDE" data-c="#4F9DDE" aria-label="Azul"></button>
-        <button class="sw" style="background:#7C5CFF" data-c="#7C5CFF" aria-label="Morado"></button>
+        <button class="sw on" style="background:#C9A54A" data-c="#C9A54A" aria-label="Latón"></button>
+        <button class="sw" style="background:#F6F4EE" data-c="#F6F4EE" aria-label="Hueso"></button>
+        <button class="sw" style="background:#B4534A" data-c="#B4534A" aria-label="Arcilla"></button>
+        <button class="sw" style="background:#5B6B7A" data-c="#5B6B7A" aria-label="Pizarra"></button>
+        <button class="sw" style="background:#6F7A5A" data-c="#6F7A5A" aria-label="Oliva"></button>
       </div>
     </div>
   </div>
@@ -461,7 +467,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
     <div class="stats">
       <div class="stat reveal"><div class="n" data-count="3">3</div><p>lugares distintos al día: casa, campus y transporte. Más puntos donde dejar algo.</p></div>
       <div class="stat y reveal"><div class="n"><span data-count="149">149</span><small>.000</small></div><p>pesos cuesta un AirTag en Colombia. Y solo funciona con iPhone.</p></div>
-      <div class="stat reveal"><div class="n" data-count="10">10<small>g</small></div><p>pesa Pilas. No lo sientes en el llavero, pero lo encuentras en segundos.</p></div>
+      <div class="stat reveal"><div class="n" data-count="10">10<small>g</small></div><p>pesa Ubi. No lo sientes en el llavero, pero lo encuentras en segundos.</p></div>
     </div>
   </div>
 </section>
@@ -470,9 +476,9 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
   <div class="wrap app-grid">
     <div>
       <div class="sec-head reveal" style="margin-bottom:30px">
-        <p class="eyebrow">La app Pilas</p>
+        <p class="eyebrow">La app Ubi</p>
         <h2>Ubicación real, como un AirTag.</h2>
-        <p>Pilas se conecta a la red de ubicación de millones de celulares. Si lo dejas lejos, cualquier iPhone o Android cercano reporta dónde está, sin que nadie lo sepa. Pruébalo aquí:</p>
+        <p>Ubi se conecta a la red de ubicación de millones de celulares. Si lo dejas lejos, cualquier iPhone o Android cercano reporta dónde está, sin que nadie lo sepa. Pruébalo aquí:</p>
       </div>
       <div class="features">
         <button class="feat on reveal" data-f="map">
@@ -488,7 +494,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
           <span><h3>Hacer sonar y acercarte</h3><p>Suena a 85 dB y la app te dice si estás más cerca.</p></span>
         </button>
       </div>
-      <div class="net reveal"><span><i></i>iPhone · app Buscar</span><span><i></i>Android · Encontrar mi dispositivo</span><span><i></i>App Pilas</span></div>
+      <div class="net reveal"><span><i></i>iPhone · app Buscar</span><span><i></i>Android · Encontrar mi dispositivo</span><span><i></i>App Ubi</span></div>
     </div>
 
     <div class="phone reveal" id="phone">
@@ -531,7 +537,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
             <button class="act s" id="approach">➜ Acercarme</button>
           </div>
         </div>
-        <div class="found" id="found"><div class="big">🎉</div><h4>¡Encontrado!</h4><p>Pilas te llevó hasta aquí.</p><button class="act s" id="again" style="margin-top:10px;padding:10px 20px">Probar otra vez</button></div>
+        <div class="found" id="found"><div class="big">🎉</div><h4>¡Encontrado!</h4><p>Ubi te llevó hasta aquí.</p><button class="act s" id="again" style="margin-top:10px;padding:10px 20px">Probar otra vez</button></div>
       </div>
     </div>
   </div>
@@ -541,7 +547,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Productos</p>
-      <h2>Elige tu Pilas.</h2>
+      <h2>Elige tu Ubi.</h2>
       <p>Toca el ícono de giro para ver las especificaciones. Guarda tus favoritos y arma tu pedido.</p>
     </div>
     <div class="filters" id="filters">
@@ -561,20 +567,20 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
       <h2>Listo en un minuto.</h2>
     </div>
     <div class="steps">
-      <div class="step reveal" style="background:var(--dark2);color:var(--cream)"><div class="num" style="-webkit-text-stroke-color:#F5C518">01</div><h3>Saca la lengüeta</h3><p style="color:var(--t4)">La pila CR2032 viene puesta. Dura cerca de un año y se cambia en segundos.</p></div>
-      <div class="step reveal" style="background:var(--dark2);color:var(--cream)"><div class="num" style="-webkit-text-stroke-color:#F5C518">02</div><h3>Acércalo a tu celular</h3><p style="color:var(--t4)">Aparece en Buscar (iPhone) o en Encontrar mi dispositivo (Android). Ponle nombre: "Llaves".</p></div>
+      <div class="step reveal" style="background:var(--dark2);color:var(--cream)"><div class="num" style="-webkit-text-stroke-color:#C9A54A">01</div><h3>Saca la lengüeta</h3><p style="color:var(--t4)">La pila CR2032 viene puesta. Dura cerca de un año y se cambia en segundos.</p></div>
+      <div class="step reveal" style="background:var(--dark2);color:var(--cream)"><div class="num" style="-webkit-text-stroke-color:#C9A54A">02</div><h3>Acércalo a tu celular</h3><p style="color:var(--t4)">Aparece en Buscar (iPhone) o en Encontrar mi dispositivo (Android). Ponle nombre: "Llaves".</p></div>
       <div class="step reveal" style="background:var(--yellow)"><div class="num">03</div><h3>Olvídate del susto</h3><p style="color:var(--dark)">Míralo en el mapa, hazlo sonar o recibe la alerta si se te queda.</p></div>
     </div>
     <div style="margin-top:56px" class="reveal">
       <div class="os-switch" id="osSwitch"><button class="on" data-os="ios">iPhone</button><button data-os="android">Android</button></div>
       <div class="compat">
         <div class="os-panel on" data-p="ios">
-          <div><div class="k">Buscar</div><h4>App nativa de Apple</h4><p>Pilas aparece en "Objetos", junto a tus otros dispositivos.</p></div>
+          <div><div class="k">Buscar</div><h4>App nativa de Apple</h4><p>Ubi aparece en "Objetos", junto a tus otros dispositivos.</p></div>
           <div><div class="k">iOS 14.5+</div><h4>Compatibilidad</h4><p>Funciona con iPhone desde la versión 14.5 de iOS.</p></div>
           <div><div class="k">Red</div><h4>Millones de iPhone</h4><p>Cualquier iPhone cercano reporta la ubicación de forma anónima y cifrada.</p></div>
         </div>
         <div class="os-panel" data-p="android">
-          <div><div class="k">Encontrar</div><h4>App de Google</h4><p>Pilas aparece en Encontrar mi dispositivo, con mapa y sonido.</p></div>
+          <div><div class="k">Encontrar</div><h4>App de Google</h4><p>Ubi aparece en Encontrar mi dispositivo, con mapa y sonido.</p></div>
           <div><div class="k">Android 9+</div><h4>Compatibilidad</h4><p>Funciona con la mayoría de celulares Android desde la versión 9.</p></div>
           <div><div class="k">Red</div><h4>Red de Google</h4><p>Los Android cercanos ayudan a ubicarlo, también de forma anónima.</p></div>
         </div>
@@ -591,7 +597,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
     </div>
     <div class="cmp reveal">
       <table>
-        <tr><th></th><th class="us">Pilas</th><th>AirTag</th></tr>
+        <tr><th></th><th class="us">Ubi</th><th>AirTag</th></tr>
         <tr><td>Precio en Cali</td><td class="us"><b>$39.900</b></td><td>$149.000</td></tr>
         <tr><td>Funciona con iPhone</td><td class="us ok">Sí</td><td class="ok">Sí</td></tr>
         <tr><td>Funciona con Android</td><td class="us ok">Sí</td><td class="no">No</td></tr>
@@ -607,40 +613,45 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
   <div class="wrap">
     <div class="sec-head reveal">
       <p class="eyebrow">Costos de importación</p>
-      <h2>Cómo llegamos a $39.900.</h2>
-      <p>Traemos Pilas desde Shenzhen por courier. Este es el costo de cada unidad puesta en Cali y cómo fijamos el precio de venta.</p>
+      <h2>De Shenzhen a Cali, peso por peso.</h2>
+      <p>Mueve el dólar y el tamaño del pedido para ver cómo cambian el costo y la ganancia.</p>
     </div>
     <div class="cost-grid">
       <div class="ctable reveal">
         <table>
-          <tr><th>Componente</th><th class="n">COP</th><th class="n">%</th></tr>
-          <tr><td><span class="dot" style="background:#F5C518"></span>Precio en origen<small id="cOriginNote">USD 4,20 × TRM 3.175</small></td><td class="n" id="c0">13.334</td><td class="pct" id="p0"></td></tr>
-          <tr><td><span class="dot" style="background:#4F9DDE"></span>Transporte y seguro<small>Courier internacional, USD 0,55 por unidad</small></td><td class="n" id="c1">1.746</td><td class="pct" id="p1"></td></tr>
-          <tr><td><span class="dot" style="background:#7C5CFF"></span>Arancel 5 %<small>Sobre el valor CIF · subpartida 8526.92</small></td><td class="n" id="c2">754</td><td class="pct" id="p2"></td></tr>
-          <tr><td><span class="dot" style="background:#E07A2E"></span>IVA de importación 19 %<small>Sobre CIF + arancel</small></td><td class="n" id="c3">3.008</td><td class="pct" id="p3"></td></tr>
-          <tr><td><span class="dot" style="background:#A9ADB8"></span>Agencia, pago y manejo<small>Trámite, comisión de pago y bodegaje</small></td><td class="n" id="c4">1.190</td><td class="pct" id="p4"></td></tr>
-          <tr><td><span class="dot" style="background:#17191F"></span>Empaque local y llavero<small>Caja, instructivo en español y argolla</small></td><td class="n" id="c5">2.000</td><td class="pct" id="p5"></td></tr>
-          <tr class="tot"><td>Costo total por unidad</td><td class="n" id="cTot">22.032</td><td class="pct">100 %</td></tr>
+          <tr><th>Componente</th><th class="n">COP por unidad</th></tr>
+          <tr data-i="0"><td><span class="dot" style="background:var(--c0)"></span>Precio en origen<small id="cOriginNote">USD 4,20 por unidad</small></td><td class="n" id="c0">13.334</td></tr>
+          <tr data-i="1"><td><span class="dot" style="background:var(--c1)"></span>Transporte y seguro<small>Courier, USD 0,55 por unidad</small></td><td class="n" id="c1">1.746</td></tr>
+          <tr data-i="2"><td><span class="dot" style="background:var(--c2)"></span>Arancel 5 %<small>Subpartida 8526.92</small></td><td class="n" id="c2">754</td></tr>
+          <tr data-i="3"><td><span class="dot" style="background:var(--c3)"></span>IVA de importación 19 %<small>Sobre valor CIF + arancel</small></td><td class="n" id="c3">3.008</td></tr>
+          <tr data-i="4"><td><span class="dot" style="background:var(--c4)"></span>Agencia, pago y manejo</td><td class="n" id="c4">1.190</td></tr>
+          <tr data-i="5"><td><span class="dot" style="background:var(--c5)"></span>Empaque local y llavero</td><td class="n" id="c5">2.000</td></tr>
+          <tr class="tot"><td>Costo puesto en Cali</td><td class="n" id="cTot">22.032</td></tr>
         </table>
         <div class="stackbar" id="stack" aria-hidden="true"></div>
-        <p style="font-size:13px;color:var(--t3);padding:0 22px 20px">Proporción de cada componente en el costo total.</p>
       </div>
-      <div class="pricecard reveal">
-        <p class="lab">Fórmula de precio</p>
-        <div class="formula">P = costo / (1 − margen)<br><span style="color:var(--t4);font-size:20px" id="fLine">22.032 / (1 − 0,40) = $36.720</span></div>
-        <div class="mrow"><span>Redondeado a precio psicológico</span></div>
-        <div class="final">$39.900</div>
-        <span class="mchip" id="mChip">Margen real 44,8 %</span>
-        <div class="trm">
-          <div class="mrow"><label for="trmRange" style="color:var(--t5);font-weight:500;font-size:15px">¿Y si sube el dólar?</label><span id="trmVal">$3.175</span></div>
+      <div class="sim reveal">
+        <div class="ctrl">
+          <div class="crow"><label for="trmRange">Dólar (TRM)</label><output id="trmVal">$3.175</output></div>
           <input type="range" id="trmRange" min="3000" max="4200" step="25" value="3175">
-          <div class="mrow"><span>Costo por unidad</span><b id="trmCost">$22.032</b></div>
-          <div class="mrow"><span>Ganancia por unidad</span><b id="trmProfit">$17.868</b></div>
         </div>
-        <p style="font-size:14px;color:var(--t4)">Estrategia de penetración: precio fijado para Cali, 73 % por debajo del AirTag, con margen sano aun si el dólar sube.</p>
+        <div class="ctrl">
+          <div class="crow"><label for="qtyRange">Unidades del pedido</label><output id="qtyVal">200</output></div>
+          <input type="range" id="qtyRange" min="50" max="500" step="10" value="200">
+        </div>
+        <div class="kpis">
+          <div class="kpi"><span>Precio de venta</span><b>$39.900</b></div>
+          <div class="kpi"><span>Ganancia por unidad</span><b id="kProfit">$17.868</b></div>
+          <div class="kpi"><span>Inversión del pedido</span><b id="kInv">$4,4 M</b></div>
+          <div class="kpi"><span>Recuperas la inversión con</span><b id="kBe">111 und.</b></div>
+        </div>
+        <div class="gauge">
+          <div class="crow"><span>Margen</span><output id="mVal">44,8 %</output></div>
+          <div class="gtrack"><i id="mBar"></i><em style="left:40%"></em></div>
+          <p class="gnote" id="mNote">Por encima del 40 % que nos pusimos como meta.</p>
+        </div>
       </div>
     </div>
-    <p class="cnote reveal">TRM de $3.174,67 del 19 de octubre de 2026. El flete y el arancel son estimados del equipo y se confirman con la cotización del courier y el arancel de la DIAN antes de pagar el pedido.</p>
   </div>
 </section>
 
@@ -653,7 +664,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
     <div class="disc">
       <div class="dcard y reveal"><p style="font-weight:700">Pack x2 · el más pedido</p><div class="big">$69.900</div><p>Uno para las llaves y otro para el morral.</p></div>
       <div class="dcard reveal"><p style="font-weight:700">Con carné estudiantil</p><div class="big">−10 %</div><p>Muestra tu carné al recibir.</p></div>
-      <div class="dcard reveal"><p style="font-weight:700">Síguenos en redes</p><div class="big">−5 %</div><p>Sigue @pilas.cali y muéstralo.</p></div>
+      <div class="dcard reveal"><p style="font-weight:700">Síguenos en redes</p><div class="big">−5 %</div><p>Sigue @ubi.cali y muéstralo.</p></div>
     </div>
   </div>
 </section>
@@ -694,8 +705,8 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
   <div class="wrap vote">
     <div class="reveal">
       <p class="eyebrow" style="margin-bottom:16px">Tu voto</p>
-      <h2>¿Comprarías Pilas a $39.900?</h2>
-      <p style="color:var(--t5);font-size:18px;margin-top:16px">Vota y, si dices que sí, separa tu Pilas en la preventa con 10 % de descuento.</p>
+      <h2>¿Comprarías un Ubi a $39.900?</h2>
+      <p style="color:var(--t5);font-size:18px;margin-top:16px">Vota y, si dices que sí, separa tu Ubi en la preventa con 10 % de descuento.</p>
       <div class="vbtns">
         <button class="btn btn-y" data-v="si">Sí, lo compro</button>
         <button class="btn btn-o" data-v="no">No, por ahora</button>
@@ -706,7 +717,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
       </div>
     </div>
     <form class="pre reveal" id="preForm" novalidate>
-      <h3>Separa tu Pilas</h3>
+      <h3>Separa tu Ubi</h3>
       <label>Nombre<input id="fName" required placeholder="Tu nombre" autocomplete="given-name"></label>
       <label>Universidad
         <select id="fUni"><option>Icesi</option><option>Javeriana Cali</option><option>Univalle</option><option>Autónoma de Occidente</option><option>Otra</option></select>
@@ -716,12 +727,12 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
       </label>
       <label>Cantidad<div class="qty"><button type="button" id="qMinus" aria-label="Menos">−</button><b id="qVal">1</b><button type="button" id="qPlus" aria-label="Más">+</button></div></label>
       <div class="total"><span><small>Total con 10 % de preventa</small><span id="fOld" style="color:var(--t3);text-decoration:line-through;font-size:14px"></span></span><b id="fTotal">$35.910</b></div>
-      <button class="btn btn-d" type="submit" style="justify-content:center">Separar mi Pilas</button>
+      <button class="btn btn-d" type="submit" style="justify-content:center">Separar mi Ubi</button>
       <div class="ok-screen" id="okScreen">
         <div style="font-size:56px">⚡</div>
         <h3 id="okTitle">¡Listo!</h3>
         <p id="okMsg">Quedaste en la preventa.</p>
-        <span class="code">PILAS10</span>
+        <span class="code">UBI10</span>
         <p style="font-size:14px">Muestra este código al recibir tu pedido.</p>
         <button type="button" class="btn btn-d" id="okBack" style="margin-top:8px">Hacer otro pedido</button>
       </div>
@@ -734,9 +745,9 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
     <div class="sec-head reveal"><p class="eyebrow">Preguntas</p><h2>Lo que nos preguntan.</h2></div>
     <div class="faq" id="faqList">
       <div class="q reveal"><button>¿De verdad funciona como un AirTag?<i>+</i></button><div class="a"><div>Sí. Usa Bluetooth y se conecta a la red de ubicación de Apple (app Buscar) o de Google (Encontrar mi dispositivo). Importamos un modelo con certificación oficial del fabricante para esas redes, así que el mapa y el sonido funcionan igual.</div></div></div>
-      <div class="q reveal"><button>¿Necesito la app Pilas?<i>+</i></button><div class="a"><div>No es obligatoria: con Buscar o Encontrar ya lo ubicas. La app Pilas suma la alerta "Se te quedó", compartir la ubicación con amigos y los descuentos de la comunidad.</div></div></div>
+      <div class="q reveal"><button>¿Necesito la app Ubi?<i>+</i></button><div class="a"><div>No es obligatoria: con Buscar o Encontrar ya lo ubicas. La app Ubi suma la alerta "Se te quedó", compartir la ubicación con amigos y los descuentos de la comunidad.</div></div></div>
       <div class="q reveal"><button>¿Cuánto dura la batería?<i>+</i></button><div class="a"><div>Cerca de un año con una pila CR2032, que consigues en cualquier droguería o papelería por unos pocos miles de pesos.</div></div></div>
-      <div class="q reveal"><button>¿Alguien me puede rastrear con un Pilas?<i>+</i></button><div class="a"><div>Las redes de Apple y Google avisan si un rastreador desconocido viaja contigo. Pilas respeta esas protecciones contra el rastreo no deseado.</div></div></div>
+      <div class="q reveal"><button>¿Alguien me puede rastrear con un Ubi?<i>+</i></button><div class="a"><div>Las redes de Apple y Google avisan si un rastreador desconocido viaja contigo. Ubi respeta esas protecciones contra el rastreo no deseado.</div></div></div>
       <div class="q reveal"><button>¿Cómo pago y cuándo me llega?<i>+</i></button><div class="a"><div>Pagas por Nequi o en efectivo al recibir. Entregamos en tu universidad en los días indicados, normalmente en menos de una semana.</div></div></div>
       <div class="q reveal"><button>¿Tiene garantía?<i>+</i></button><div class="a"><div>Sí, tres meses. Si llega con un defecto, lo cambiamos en el siguiente día de entrega.</div></div></div>
     </div>
@@ -747,10 +758,10 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
   <div class="wrap">
     <div>
       <div class="big">Que no se te<br><em>pierda</em> nada.</div>
-      <small>Pilas es un proyecto académico de Marketing Internacional. Precios en pesos colombianos con IVA incluido. AirTag, Buscar y Encontrar mi dispositivo son marcas de sus respectivos dueños.</small>
+      <small>Ubi es un proyecto académico de Marketing Internacional. Precios en pesos colombianos con IVA incluido. AirTag, Buscar y Encontrar mi dispositivo son marcas de sus respectivos dueños.</small>
     </div>
     <div style="display:flex;flex-direction:column;gap:8px;font-size:15px">
-      <a href="#app">La app</a><a href="#productos">Productos</a><a href="#preventa">Preventa</a><span>@pilas.cali</span>
+      <a href="#app">La app</a><a href="#productos">Productos</a><a href="#preventa">Preventa</a><span>@ubi.cali</span>
     </div>
   </div>
 </footer>
@@ -761,7 +772,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
   <div class="lines" id="lines"></div>
   <div class="toggles">
     <div class="tg">Tengo carné estudiantil (−10 %)<button class="switch" id="tgCarne" aria-label="Descuento carné"></button></div>
-    <div class="tg">Sigo a @pilas.cali (−5 %)<button class="switch" id="tgRedes" aria-label="Descuento redes"></button></div>
+    <div class="tg">Sigo a @ubi.cali (−5 %)<button class="switch" id="tgRedes" aria-label="Descuento redes"></button></div>
   </div>
   <div class="sum">
     <div><span>Subtotal</span><span id="sSub">$0</span></div>
@@ -908,19 +919,19 @@ setItem(0);
 
 /* ---------- Products ---------- */
 const products = [
-  {id:'tag', k:'tag', name:'Pilas Tag', price:39900, tag:'Nuevo', sym:'tag', desc:'El rastreador para tus llaves, morral o billetera.',
+  {id:'tag', k:'tag', name:'Ubi Tag', price:39900, tag:'Nuevo', sym:'tag', desc:'El rastreador para tus llaves, morral o billetera.',
    specs:[['Peso','10 g'],['Batería','CR2032 · 1 año'],['Alcance Bluetooth','Hasta 80 m'],['Sonido','85 dB'],['Resistencia','IP67, agua y polvo']]},
   {id:'pack2', k:'pack', name:'Pack x2', price:69900, was:79800, tag:'Más pedido', sym:'tag', two:true, desc:'Uno para las llaves y otro para el morral.',
-   specs:[['Unidades','2 Pilas Tag'],['Ahorras','$9.900'],['Llaveros','2 incluidos'],['Ideal para','Llaves y morral'],['Garantía','3 meses']]},
-  {id:'patch4', k:'pack', name:'Pack Parche x4', price:129900, was:159600, tag:'Para el grupo', sym:'tag', four:true, desc:'Cuatro Pilas para dividir con tus amigos.',
-   specs:[['Unidades','4 Pilas Tag'],['Por persona','$32.475'],['Ahorras','$29.700'],['Compartir','Ubicación entre amigos'],['Garantía','3 meses']]},
+   specs:[['Unidades','2 Ubi Tag'],['Ahorras','$9.900'],['Llaveros','2 incluidos'],['Ideal para','Llaves y morral'],['Garantía','3 meses']]},
+  {id:'patch4', k:'pack', name:'Pack Parche x4', price:129900, was:159600, tag:'Para el grupo', sym:'tag', four:true, desc:'Cuatro Ubi para dividir con tus amigos.',
+   specs:[['Unidades','4 Ubi Tag'],['Por persona','$32.475'],['Ahorras','$29.700'],['Compartir','Ubicación entre amigos'],['Garantía','3 meses']]},
   {id:'key', k:'acc', name:'Llavero de color', price:9900, tag:'Accesorio', sym:'ring', desc:'Silicona suave en cinco colores.',
-   specs:[['Material','Silicona'],['Colores','5'],['Compatible','Pilas Tag'],['Incluye','Mosquetón'],['Peso','6 g']]},
+   specs:[['Material','Silicona'],['Colores','5'],['Compatible','Ubi Tag'],['Incluye','Mosquetón'],['Peso','6 g']]},
   {id:'bat', k:'acc', name:'Pila de repuesto x2', price:6900, tag:'Accesorio', sym:'bat', desc:'Dos pilas CR2032 para otro año de uso.',
    specs:[['Tipo','CR2032 litio'],['Unidades','2'],['Duración','1 año cada una'],['Cambio','Sin herramientas'],['Marca','Reconocida']]}
 ];
-const colors = ['#F5C518','#F6F4EE','#E5484D','#4F9DDE','#7C5CFF'];
-function art(p, c = '#F5C518', size = ''){
+const colors = ['#C9A54A','#F6F4EE','#B4534A','#5B6B7A','#6F7A5A'];
+function art(p, c = '#C9A54A', size = ''){
   if (p.sym === 'ring') return `<svg viewBox="0 0 200 200" ${size}><circle cx="100" cy="70" r="34" fill="none" stroke="#17191F" stroke-width="10"/><rect x="58" y="96" width="84" height="84" rx="40" fill="${c}"/><circle cx="100" cy="138" r="18" fill="#F6F4EE" opacity=".7"/></svg>`;
   if (p.sym === 'bat') return `<svg viewBox="0 0 200 200" ${size}><circle cx="80" cy="110" r="56" fill="#C9CDD6"/><circle cx="80" cy="110" r="44" fill="#E4E7EC"/><text x="80" y="118" text-anchor="middle" font-family="Oswald" font-size="22" fill="#4A4E57">CR2032</text><circle cx="130" cy="96" r="50" fill="#C9CDD6" opacity=".7"/></svg>`;
   if (p.sym === 'patch') return `<svg viewBox="0 0 400 440" ${size}><use href="#patch"/></svg>`;
@@ -949,7 +960,7 @@ function renderGrid(){
       <div class="face back">
         <h3>${p.name}</h3>
         <ul class="specs">${p.specs.map(s => `<li><span>${s[0]}</span><b>${s[1]}</b></li>`).join('')}</ul>
-        ${p.sym === 'tag' || p.sym === 'ring' ? `<div class="colors">${colors.map(c => `<button class="sw ${ (pColor[p.id]||'#F5C518') === c ? 'on' : ''}" style="background:${c}" data-c="${c}" aria-label="Color"></button>`).join('')}</div>` : '<div style="height:14px"></div>'}
+        ${p.sym === 'tag' || p.sym === 'ring' ? `<div class="colors">${colors.map(c => `<button class="sw ${ (pColor[p.id]||'#C9A54A') === c ? 'on' : ''}" style="background:${c}" data-c="${c}" aria-label="Color"></button>`).join('')}</div>` : '<div style="height:14px"></div>'}
         <div class="prow"><button class="add">Agregar · ${fmt(p.price)}</button><button class="flip" aria-label="Volver"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/></svg></button></div>
       </div>
     </div>
@@ -995,7 +1006,7 @@ function renderCart(){
   $('#lines').innerHTML = ids.length ? ids.map(k => { const p = products.find(x => x.id === k); return `
     <div class="line" data-id="${k}"><div class="th">${art(p, pColor[k])}</div><div class="m"><b>${p.name}</b><small>${fmt(p.price)}</small></div>
     <div class="q2"><button data-d="-1">−</button><b>${cart[k]}</b><button data-d="1">+</button></div></div>`; }).join('')
-    : '<p class="empty">Tu pedido está vacío.<br>Agrega un Pilas para empezar.</p>';
+    : '<p class="empty">Tu pedido está vacío.<br>Agrega un Ubi para empezar.</p>';
   const sub = ids.reduce((a, k) => a + products.find(x => x.id === k).price * cart[k], 0);
   const pct = (dCarne ? .10 : 0) + (dRedes ? .05 : 0);
   $('#sSub').textContent = fmt(sub); $('#sDisc').textContent = '−' + fmt(sub * pct); $('#sTot').textContent = fmt(sub * (1 - pct));
@@ -1038,7 +1049,7 @@ function showVotes(){
 }
 $$('[data-v]').forEach(b => b.addEventListener('click', () => {
   votes[b.dataset.v]++; store.set('votes', votes); showVotes();
-  if (b.dataset.v === 'si'){ toast('¡Gracias! Separa tu Pilas aquí abajo'); $('#fName').focus({preventScroll:true}); }
+  if (b.dataset.v === 'si'){ toast('¡Gracias! Separa tu Ubi aquí abajo'); $('#fName').focus({preventScroll:true}); }
   else toast('Gracias por tu voto');
 }));
 if (votes.si + votes.no) showVotes();
@@ -1058,7 +1069,7 @@ updTotal();
 $('#preForm').addEventListener('submit', e => {
   e.preventDefault();
   const n = $('#fName').value.trim();
-  if (!n){ $('#fName').style.borderColor = '#E5484D'; $('#fName').focus(); toast('Escribe tu nombre'); return; }
+  if (!n){ $('#fName').style.borderColor = '#B4534A'; $('#fName').focus(); toast('Escribe tu nombre'); return; }
   $('#fName').style.borderColor = '';
   const p = products.find(x => x.id === sel.value);
   $('#okTitle').textContent = `¡Listo, ${n.split(' ')[0]}!`;
@@ -1070,26 +1081,33 @@ $('#okBack').addEventListener('click', () => { $('#okScreen').classList.remove('
 
 
 /* ---------- Import costs ---------- */
-const PRICE = 39900, cCol = ['#F5C518','#4F9DDE','#7C5CFF','#E07A2E','#A9ADB8','#17191F'];
+const PRICE = 39900;
 const n0 = v => Math.round(v).toLocaleString('es-CO');
+const mill = v => '$' + (v / 1e6).toFixed(1).replace('.', ',') + ' M';
 function costs(trm){
   const o = 4.2 * trm, t = 0.55 * trm, cif = o + t, ar = cif * .05, iva = (cif + ar) * .19;
   return [o, t, ar, iva, 1190, 2000];
 }
 function updCosts(){
-  const rv = +$('#trmRange').value, trm = rv === 3175 ? 3174.67 : rv, c = costs(trm), tot = c.reduce((a, b) => a + b, 0);
-  c.forEach((v, i) => { $('#c' + i).textContent = n0(v); $('#p' + i).textContent = Math.round(v / tot * 100) + ' %'; });
+  const rv = +$('#trmRange').value, trm = rv === 3175 ? 3174.67 : rv, q = +$('#qtyRange').value;
+  const c = costs(trm), tot = c.reduce((a, b) => a + b, 0), profit = PRICE - tot, m = profit / PRICE * 100;
+  c.forEach((v, i) => $('#c' + i).textContent = n0(v));
   $('#cTot').textContent = n0(tot);
-  $('#stack').innerHTML = c.map((v, i) => `<i style="flex-grow:${v};background:${cCol[i]}"></i>`).join('');
-  $('#cOriginNote').textContent = 'USD 4,20 × TRM ' + n0(trm);
-  $('#fLine').textContent = `${n0(tot)} / (1 − 0,40) = $${n0(tot / .6)}`;
-  const m = (PRICE - tot) / PRICE * 100;
-  $('#mChip').textContent = 'Margen real ' + m.toFixed(1).replace('.', ',') + ' %';
-  $('#mChip').classList.toggle('warn', m < 35);
-  $('#trmVal').textContent = '$' + n0(trm);
-  $('#trmCost').textContent = '$' + n0(tot); $('#trmProfit').textContent = '$' + n0(PRICE - tot);
+  $('#stack').innerHTML = c.map((v, i) => `<i data-i="${i}" style="flex-grow:${v};background:var(--c${i})"></i>`).join('');
+  $('#cOriginNote').textContent = 'USD 4,20 × $' + n0(trm);
+  $('#trmVal').textContent = '$' + n0(trm); $('#qtyVal').textContent = q;
+  $('#kProfit').textContent = '$' + n0(profit);
+  $('#kInv').textContent = mill(tot * q);
+  $('#kBe').textContent = Math.ceil(tot * q / PRICE) + ' und.';
+  $('#mVal').textContent = m.toFixed(1).replace('.', ',') + ' %';
+  $('#mBar').style.width = Math.max(0, m) + '%'; $('#mBar').classList.toggle('warn', m < 35);
+  $('#mNote').textContent = m >= 40 ? 'Por encima del 40 % que nos pusimos como meta.' : m >= 35 ? 'Por debajo de la meta del 40 %, pero aún rentable.' : 'Margen bajo: tocaría revisar el precio o el proveedor.';
 }
-$('#trmRange').addEventListener('input', updCosts); updCosts();
+$('#trmRange').addEventListener('input', updCosts); $('#qtyRange').addEventListener('input', updCosts); updCosts();
+$$('.ctable tr[data-i]').forEach(r => {
+  r.addEventListener('mouseenter', () => { r.classList.add('hl'); $('#stack').classList.add('focus'); $('#stack').children[r.dataset.i].classList.add('hl'); });
+  r.addEventListener('mouseleave', () => { r.classList.remove('hl'); $('#stack').classList.remove('focus'); [...$('#stack').children].forEach(x => x.classList.remove('hl')); });
+});
 
 /* ---------- FAQ ---------- */
 $$('.q button').forEach(b => b.addEventListener('click', () => {
