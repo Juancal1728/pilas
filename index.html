@@ -240,6 +240,34 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:7
 .ok{color:#1B8A4B;font-weight:700}.no{color:#C2412D;font-weight:700}
 @media (max-width:560px){.cmp th,.cmp td{padding:14px 12px;font-size:14px}}
 
+
+/* IMPORT COSTS */
+.cost-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;align-items:start}
+.ctable{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);overflow-x:auto;min-width:0}
+.ctable table{width:100%;border-collapse:collapse;font-size:16px;font-variant-numeric:tabular-nums}
+.ctable th,.ctable td{padding:15px 22px;text-align:left;border-bottom:1px solid #EEE9DD}
+.ctable th{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);font-weight:700}
+.ctable td.n,.ctable th.n{text-align:right;white-space:nowrap}
+.ctable td small{display:block;color:var(--t3);font-size:13px}
+.ctable .dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:10px;vertical-align:middle}
+.ctable tr.tot td{background:var(--pale);font-weight:700;border-bottom:0;font-size:18px}
+.ctable td.pct{color:var(--t3);font-size:14px;text-align:right}
+.stackbar{display:flex;height:14px;border-radius:9px;overflow:hidden;margin:20px 22px 6px}
+.stackbar i{display:block;height:100%;transition:flex-grow .5s}
+.pricecard{background:var(--dark);color:var(--cream);border-radius:var(--r);padding:30px;display:flex;flex-direction:column;gap:14px}
+.pricecard .lab{font-size:13px;color:var(--t4);letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.formula{font-family:'Oswald',Impact,sans-serif;font-size:24px;line-height:1.3;background:var(--dark2);padding:14px 18px;border-radius:16px}
+.pricecard .final{font-family:'Oswald',Impact,sans-serif;font-size:64px;color:var(--yellow);line-height:1;font-weight:700}
+.mrow{display:flex;justify-content:space-between;font-size:15px;color:var(--t5);font-variant-numeric:tabular-nums}
+.mrow b{color:var(--cream)}
+.trm{background:var(--dark2);border-radius:16px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.trm input[type=range]{width:100%;accent-color:var(--yellow);padding:0;border:0;background:none}
+.trm .mrow span:last-child{font-family:'Oswald',Impact,sans-serif;font-size:20px;color:var(--yellow)}
+.mchip{align-self:flex-start;font-weight:700;font-size:14px;padding:6px 14px;border-radius:999px;background:var(--yellow);color:var(--dark);transition:background .3s}
+.mchip.warn{background:#E5484D;color:#fff}
+.cnote{font-size:13px;color:var(--t3);margin-top:16px;max-width:760px}
+@media (max-width:900px){.cost-grid{grid-template-columns:1fr}}
+
 /* DISCOUNTS */
 .disc{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:20px}
 .dcard{border-radius:var(--r);padding:32px;background:var(--card);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:6px}
@@ -368,7 +396,7 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
       Pilas
     </a>
     <div class="nav-links">
-      <a href="#app">La app</a><a href="#productos">Productos</a><a href="#como">Cómo funciona</a><a href="#comparar">Comparar</a><a href="#preventa">Preventa</a>
+      <a href="#app">La app</a><a href="#productos">Productos</a><a href="#como">Cómo funciona</a><a href="#comparar">Comparar</a><a href="#costos">Costos</a><a href="#preventa">Preventa</a>
     </div>
     <div class="nav-r">
       <a href="#preventa" class="btn btn-y" style="padding:11px 20px;font-size:14px">Votar</a>
@@ -572,6 +600,47 @@ footer small{font-size:13px;display:block;max-width:440px;margin-top:16px}
         <tr><td>Entrega en tu campus</td><td class="us ok">Sí</td><td class="no">No</td></tr>
       </table>
     </div>
+  </div>
+</section>
+
+<section id="costos" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Costos de importación</p>
+      <h2>Cómo llegamos a $39.900.</h2>
+      <p>Traemos Pilas desde Shenzhen por courier. Este es el costo de cada unidad puesta en Cali y cómo fijamos el precio de venta.</p>
+    </div>
+    <div class="cost-grid">
+      <div class="ctable reveal">
+        <table>
+          <tr><th>Componente</th><th class="n">COP</th><th class="n">%</th></tr>
+          <tr><td><span class="dot" style="background:#F5C518"></span>Precio en origen<small id="cOriginNote">USD 4,20 × TRM 3.175</small></td><td class="n" id="c0">13.334</td><td class="pct" id="p0"></td></tr>
+          <tr><td><span class="dot" style="background:#4F9DDE"></span>Transporte y seguro<small>Courier internacional, USD 0,55 por unidad</small></td><td class="n" id="c1">1.746</td><td class="pct" id="p1"></td></tr>
+          <tr><td><span class="dot" style="background:#7C5CFF"></span>Arancel 5 %<small>Sobre el valor CIF · subpartida 8526.92</small></td><td class="n" id="c2">754</td><td class="pct" id="p2"></td></tr>
+          <tr><td><span class="dot" style="background:#E07A2E"></span>IVA de importación 19 %<small>Sobre CIF + arancel</small></td><td class="n" id="c3">3.008</td><td class="pct" id="p3"></td></tr>
+          <tr><td><span class="dot" style="background:#A9ADB8"></span>Agencia, pago y manejo<small>Trámite, comisión de pago y bodegaje</small></td><td class="n" id="c4">1.190</td><td class="pct" id="p4"></td></tr>
+          <tr><td><span class="dot" style="background:#17191F"></span>Empaque local y llavero<small>Caja, instructivo en español y argolla</small></td><td class="n" id="c5">2.000</td><td class="pct" id="p5"></td></tr>
+          <tr class="tot"><td>Costo total por unidad</td><td class="n" id="cTot">22.032</td><td class="pct">100 %</td></tr>
+        </table>
+        <div class="stackbar" id="stack" aria-hidden="true"></div>
+        <p style="font-size:13px;color:var(--t3);padding:0 22px 20px">Proporción de cada componente en el costo total.</p>
+      </div>
+      <div class="pricecard reveal">
+        <p class="lab">Fórmula de precio</p>
+        <div class="formula">P = costo / (1 − margen)<br><span style="color:var(--t4);font-size:20px" id="fLine">22.032 / (1 − 0,40) = $36.720</span></div>
+        <div class="mrow"><span>Redondeado a precio psicológico</span></div>
+        <div class="final">$39.900</div>
+        <span class="mchip" id="mChip">Margen real 44,8 %</span>
+        <div class="trm">
+          <div class="mrow"><label for="trmRange" style="color:var(--t5);font-weight:500;font-size:15px">¿Y si sube el dólar?</label><span id="trmVal">$3.175</span></div>
+          <input type="range" id="trmRange" min="3000" max="4200" step="25" value="3175">
+          <div class="mrow"><span>Costo por unidad</span><b id="trmCost">$22.032</b></div>
+          <div class="mrow"><span>Ganancia por unidad</span><b id="trmProfit">$17.868</b></div>
+        </div>
+        <p style="font-size:14px;color:var(--t4)">Estrategia de penetración: precio fijado para Cali, 73 % por debajo del AirTag, con margen sano aun si el dólar sube.</p>
+      </div>
+    </div>
+    <p class="cnote reveal">TRM de $3.174,67 del 19 de octubre de 2026. El flete y el arancel son estimados del equipo y se confirman con la cotización del courier y el arancel de la DIAN antes de pagar el pedido.</p>
   </div>
 </section>
 
@@ -998,6 +1067,29 @@ $('#preForm').addEventListener('submit', e => {
   const list = store.get('preorders', []); list.push({n, u:$('#fUni').value, p:p.id, qty, t:Date.now()}); store.set('preorders', list);
 });
 $('#okBack').addEventListener('click', () => { $('#okScreen').classList.remove('on'); $('#preForm').reset(); qty = 1; updTotal(); });
+
+
+/* ---------- Import costs ---------- */
+const PRICE = 39900, cCol = ['#F5C518','#4F9DDE','#7C5CFF','#E07A2E','#A9ADB8','#17191F'];
+const n0 = v => Math.round(v).toLocaleString('es-CO');
+function costs(trm){
+  const o = 4.2 * trm, t = 0.55 * trm, cif = o + t, ar = cif * .05, iva = (cif + ar) * .19;
+  return [o, t, ar, iva, 1190, 2000];
+}
+function updCosts(){
+  const rv = +$('#trmRange').value, trm = rv === 3175 ? 3174.67 : rv, c = costs(trm), tot = c.reduce((a, b) => a + b, 0);
+  c.forEach((v, i) => { $('#c' + i).textContent = n0(v); $('#p' + i).textContent = Math.round(v / tot * 100) + ' %'; });
+  $('#cTot').textContent = n0(tot);
+  $('#stack').innerHTML = c.map((v, i) => `<i style="flex-grow:${v};background:${cCol[i]}"></i>`).join('');
+  $('#cOriginNote').textContent = 'USD 4,20 × TRM ' + n0(trm);
+  $('#fLine').textContent = `${n0(tot)} / (1 − 0,40) = $${n0(tot / .6)}`;
+  const m = (PRICE - tot) / PRICE * 100;
+  $('#mChip').textContent = 'Margen real ' + m.toFixed(1).replace('.', ',') + ' %';
+  $('#mChip').classList.toggle('warn', m < 35);
+  $('#trmVal').textContent = '$' + n0(trm);
+  $('#trmCost').textContent = '$' + n0(tot); $('#trmProfit').textContent = '$' + n0(PRICE - tot);
+}
+$('#trmRange').addEventListener('input', updCosts); updCosts();
 
 /* ---------- FAQ ---------- */
 $$('.q button').forEach(b => b.addEventListener('click', () => {
